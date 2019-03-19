@@ -1,6 +1,7 @@
 <?php
 
 require_once './vendor/autoload.php';
+require_once './db.php';
 
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
