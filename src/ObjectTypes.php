@@ -80,15 +80,13 @@ class LocationType extends ObjectType
 							]
 						],
 						'resolve' => function($location, $args, $context) {
-							
 							$users = json_decode($location["users"], true);
-							$u = [];
+							$userMap = [];
 							for ($i = 0; $i < count($users); $i++) {
-								$userid = $users[$i];
-								$user = DB::getUserFromID($userid);
-								$u[$i] = $user;
+								$user = DB::getUserFromID($users[$i]);
+								$userMap[$i] = $user;
 							}
-							return $u;
+							return $userMap;
 						}
 					]
 				];
@@ -107,6 +105,7 @@ class QueryType extends ObjectType
 				return [
 					'location' => [ 
 						'type' => CustomTypes::location(),
+						'description' => 'Get a single location',
 						'args' => [
 							'id' => [
 								'type' => CustomTypes::int(),
@@ -118,8 +117,25 @@ class QueryType extends ObjectType
 							return $result;
 						}
 					],
+
+					'locations' => [
+						'type' => CustomTypes::listOf(CustomTypes::location()),
+						'description' => 'Get multiple locations',
+						'args' => [
+							'limit' => [
+								'type' => CustomTypes::int(),
+								'defaultValue' => 10
+							]
+						],
+						'resolve' => function($obj, $args) {
+							$result = DB::getLocations($args["limit"]);
+							return $result;
+						}
+					],
+
 					'user' => [
 						'type' => CustomTypes::user(),
+						'description' => 'Get a single user',
 						'args' => [
 							'id' => [
 								'type' => CustomTypes::int(),
@@ -128,6 +144,21 @@ class QueryType extends ObjectType
 						],
 						'resolve' => function($obj, $args) {
 							$result = DB::getUserFromID($args["id"]);
+							return $result;
+						}
+					],
+
+					'users' => [
+						'type' => CustomTypes::listOf(CustomTypes::user()),
+						'description' => 'Get multiple users',
+						'args' => [
+							'limit' => [
+								'type' => CustomTypes::int(),
+								'defaultValue' => 10
+							]
+						],
+						'resolve' => function($obj, $args) {
+							$result = DB::getUsers($args["limit"]);
 							return $result;
 						}
 					]
