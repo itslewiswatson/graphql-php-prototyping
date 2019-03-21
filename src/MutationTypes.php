@@ -3,10 +3,21 @@
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\GraphQL;
 
-// Input type
-// To go to new file
+class MutationRegistry
+{
+	private static $createUser;
+	private static $createLocation;
 
-// End
+	public static function createUser()
+	{
+		return self::$createUser ?: (self::$createUser = new CreateUserType());
+	}
+
+	public static function createLocation()
+	{
+		return self::$createLocation ?: (self::$createLocation = new CreateLocationType());
+	}
+}
 
 class CreateUserType extends ObjectType
 {
@@ -34,6 +45,26 @@ class CreateUserType extends ObjectType
 	}
 }
 
+class CreateLocationType extends ObjectType
+{
+	public function __construct()
+	{
+		$params = [
+			'fields' => function() {
+				return [
+					'createLocation' => [
+						'args' => [
+							'lname' => CustomType::string(),
+							'users' => CusomType::listOf(CustomType::user())
+						]
+					]
+				];
+			}
+		];
+		parent::__construct($params);
+	}
+}
+
 class MutationType extends ObjectType
 {
 	public function __construct()
@@ -41,7 +72,12 @@ class MutationType extends ObjectType
 		$params = [
 			'fields' => function() {
 				return [
-					''
+					'createUser' => [
+						'type' => MutationRegistry::createUser()
+					],
+					'createLocation' => [
+						'type' => MutationRegistry::createLocation()
+					]
 				];
 			}
 		];

@@ -14,7 +14,9 @@ require_once './vendor/autoload.php';
 require_once './src/Database.php';
 require_once './src/CustomTypes.php';
 require_once './src/ScalarTypes.php';
-require_once './src/ObjectTypes.php';
+require_once './src/QueryTypes.php';
+require_once './src/InputObjectTypes.php';
+require_once './src/MutationTypes.php';
 
 try {
 	$schema = new Schema([

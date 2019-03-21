@@ -3,6 +3,12 @@
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\GraphQL;
 
+class QueryRegistry
+{
+	private static $queryUser;
+	private static $queryLocation;
+}
+
 class UserType extends ObjectType
 {
 	public function __construct()
