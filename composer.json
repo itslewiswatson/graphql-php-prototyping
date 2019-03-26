@@ -1,4 +1,9 @@
 {
+	"autoload": {
+		"psr-4": {
+			"Prototype\\GQL\\": "src/"
+		}
+	},
     "require": {
         "webonyx/graphql-php": "^0.13.1"
     }

@@ -1,5 +1,7 @@
 <?php
 
+namespace Prototype\GQL\Type;
+
 /*
 
 use GraphQL\Type\Definition\ObjectType;

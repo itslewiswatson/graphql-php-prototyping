@@ -1,5 +1,7 @@
 <?php
 
+require_once '../vendor/autoload.php';
+
 use GraphQL\Error\Error;
 use GraphQL\Error\InvariantViolation;
 use GraphQL\Language\AST\StringValueNode;
@@ -9,18 +11,18 @@ use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Schema;
 use GraphQL\GraphQL;
+use Prototype\GQL\Type\CustomType;
+use Prototype\GQL\Priv\Database;
+use Prototype\GQL\Type\MutationType;
+use Prototype\GQL\Type\QueryType;
+//use Prototype\GQL\Type\User\UserType;
 
-require_once './vendor/autoload.php';
-require_once './src/Database.php';
-require_once './src/CustomTypes.php';
-require_once './src/ScalarTypes.php';
-require_once './src/QueryTypes.php';
-require_once './src/InputObjectTypes.php';
-require_once './src/MutationTypes.php';
+var_dump(new CustomType());
 
 try {
 	$schema = new Schema([
-		'query' => (new QueryType())
+		'query' => (new QueryType()),
+		'mutation' => (new MutationType())
 	]);
 
 	$rawInput = file_get_contents('php://input');

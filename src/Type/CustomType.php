@@ -1,9 +1,11 @@
 <?php
 
+namespace Prototype\GQL\Type;
+
 use GraphQL\Type\Definition\Type;
 use GraphQL\GraphQL;
 
-class CustomTypes
+class CustomType
 {
 	private static $user;
 	private static $location;

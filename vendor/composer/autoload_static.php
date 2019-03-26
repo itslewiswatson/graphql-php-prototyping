@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInitcd944c7e7b2d6ce68a03681afb4a39c7
 {
     public static $prefixLengthsPsr4 = array (
+        'P' => 
+        array (
+            'Prototype\\GQL\\' => 14,
+        ),
         'G' => 
         array (
             'GraphQL\\' => 8,
@@ -14,6 +18,10 @@ class ComposerStaticInitcd944c7e7b2d6ce68a03681afb4a39c7
     );
 
     public static $prefixDirsPsr4 = array (
+        'Prototype\\GQL\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
         'GraphQL\\' => 
         array (
             0 => __DIR__ . '/..' . '/webonyx/graphql-php/src',
