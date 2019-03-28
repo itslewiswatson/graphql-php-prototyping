@@ -2,7 +2,8 @@
 
 namespace Prototype\GQL\Registry;
 
-use Prototype\GQL\Type\CreateUserType;
+use Prototype\GQL\Type\User\CreateUserType;
+use Prototype\GQL\Type\Location\CreateLocationType;
 
 class MutationRegistry
 {

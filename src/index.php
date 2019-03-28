@@ -11,13 +11,10 @@ use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
 use GraphQL\Type\Schema;
 use GraphQL\GraphQL;
-use Prototype\GQL\Type\CustomType;
+
 use Prototype\GQL\Priv\Database;
 use Prototype\GQL\Type\MutationType;
 use Prototype\GQL\Type\QueryType;
-//use Prototype\GQL\Type\User\UserType;
-
-var_dump(new CustomType());
 
 try {
 	$schema = new Schema([

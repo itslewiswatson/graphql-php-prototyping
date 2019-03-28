@@ -6,54 +6,8 @@ use GraphQL\Type\Definition\ObjectType;
 use GraphQL\GraphQL;
 use Prototype\GQL\Registry\MutationRegistry;
 use Prototype\GQL\Type\CustomType;
-
-class CreateUserType extends ObjectType
-{
-	public function __construct()
-	{
-		$params = [
-			'fields' => function() {
-				return [
-					'getUser' => [
-						'type' => CustomType::user(),
-						//'resolve' => function() {
-							//var_dump("i look like sid from toy story");
-							//return "1oppa gangnam style";
-						//}
-						// This is the first point of resolution
-						'resolve' => function() {
-							return "aaa bbb";
-						}
-					],
-					'updateUser' => [
-						'type' => CustomType::user()
-					]
-				];
-			}
-		];
-		parent::__construct($params);
-	}
-}
-
-class CreateLocationType extends ObjectType
-{
-	public function __construct()
-	{
-		$params = [
-			'fields' => function() {
-				return [
-					'createLocation' => [
-						'args' => [
-							'lname' => CustomType::string(),
-							'users' => CustomType::listOf(CustomType::user())
-						]
-					]
-				];
-			}
-		];
-		//parent::__construct($params);
-	}
-}
+use Prototype\GQL\Type\Location\CreateLocationType;
+use Prototype\GQL\Type\User\CreateUserType;
 
 class MutationType extends ObjectType
 {
@@ -74,14 +28,9 @@ class MutationType extends ObjectType
 						],
 						// This one gets hit first?
 						'resolve' => function() {
-						//	var_dump("do the stanky leg");
 							return "goo goo";
 						}
-						//'type' => new ObjectType(['name' => 'yung money', 'type' => Type::string()])
-					]/*,
-					'createLocation' => [
-						//'type' => MutationRegistry::createLocation()
-					]*/
+					]
 				];
 			}
 		];
