@@ -4,6 +4,7 @@ namespace Prototype\GQL\Type;
 
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\GraphQL;
+use Prototype\GQL\Type\CustomType;
 
 class QueryType extends ObjectType
 {
@@ -13,11 +14,11 @@ class QueryType extends ObjectType
 			'fields' => function() {
 				return [
 					'location' => [ 
-						'type' => CustomTypes::location(),
+						'type' => CustomType::location(),
 						'description' => 'Get a single location',
 						'args' => [
 							'id' => [
-								'type' => CustomTypes::int(),
+								'type' => CustomType::int(),
 								'defaultValue' => 1
 							]
 						],
@@ -28,11 +29,11 @@ class QueryType extends ObjectType
 					],
 
 					'locations' => [
-						'type' => CustomTypes::listOf(CustomTypes::location()),
+						'type' => CustomType::listOf(CustomType::location()),
 						'description' => 'Get multiple locations',
 						'args' => [
 							'limit' => [
-								'type' => CustomTypes::int(),
+								'type' => CustomType::int(),
 								'defaultValue' => 10
 							]
 						],
@@ -43,11 +44,11 @@ class QueryType extends ObjectType
 					],
 
 					'user' => [
-						'type' => CustomTypes::user(),
+						'type' => CustomType::user(),
 						'description' => 'Get a single user',
 						'args' => [
 							'id' => [
-								'type' => CustomTypes::int(),
+								'type' => CustomType::int(),
 								'defaultValue' => 1
 							]
 						],
@@ -58,11 +59,11 @@ class QueryType extends ObjectType
 					],
 
 					'users' => [
-						'type' => CustomTypes::listOf(CustomTypes::user()),
+						'type' => CustomType::listOf(CustomType::user()),
 						'description' => 'Get multiple users',
 						'args' => [
 							'limit' => [
-								'type' => CustomTypes::int(),
+								'type' => CustomType::int(),
 								'defaultValue' => 10
 							]
 						],

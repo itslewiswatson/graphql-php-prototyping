@@ -1,5 +1,10 @@
 <?php
 
+namespace Prototype\GQL\Type\Location;
+
+use GraphQL\Type\Definition\ObjectType;
+use Prototype\GQL\Type\CustomType;
+
 class LocationType extends ObjectType
 {
 	public function __construct()
@@ -8,22 +13,22 @@ class LocationType extends ObjectType
 			'fields' => function() {
 				return [
 					'locationid' => [
-						'type' => CustomTypes::int(),
+						'type' => CustomType::int(),
 						'resolve' => function($location) {
 							return $location["locationid"];
 						}
 					],
 					'lname' => [
-						'type' => CustomTypes::string(),
+						'type' => CustomType::string(),
 						'resolve' => function($location) {
 							return $location["lname"];
 						}
 					],
 					'users' => [
-						'type' => CustomTypes::listOf(CustomTypes::user()),
+						'type' => CustomType::listOf(CustomType::user()),
 						'args' => [
 							'limit' => [
-								'type' => CustomTypes::int(),
+								'type' => CustomType::int(),
 								'description' => 'Limit users whomst are in location',
 								'defaultValue' => 10
 							]

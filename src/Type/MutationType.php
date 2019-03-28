@@ -4,6 +4,8 @@ namespace Prototype\GQL\Type;
 
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\GraphQL;
+use Prototype\GQL\Registry\MutationRegistry;
+use Prototype\GQL\Type\CustomType;
 
 class CreateUserType extends ObjectType
 {
@@ -13,7 +15,7 @@ class CreateUserType extends ObjectType
 			'fields' => function() {
 				return [
 					'getUser' => [
-						'type' => CustomTypes::user(),
+						'type' => CustomType::user(),
 						//'resolve' => function() {
 							//var_dump("i look like sid from toy story");
 							//return "1oppa gangnam style";
@@ -24,7 +26,7 @@ class CreateUserType extends ObjectType
 						}
 					],
 					'updateUser' => [
-						'type' => CustomTypes::user()
+						'type' => CustomType::user()
 					]
 				];
 			}
@@ -42,8 +44,8 @@ class CreateLocationType extends ObjectType
 				return [
 					'createLocation' => [
 						'args' => [
-							'lname' => CustomTypes::string(),
-							'users' => CustomTypes::listOf(CustomTypes::user())
+							'lname' => CustomType::string(),
+							'users' => CustomType::listOf(CustomType::user())
 						]
 					]
 				];
@@ -65,10 +67,10 @@ class MutationType extends ObjectType
 						'type' => MutationRegistry::createUser(),
 						'args' => [
 							// Arguments -> mutation { function(`args`) }
-							'fname' => ['type' => CustomTypes::string()],
-							'sname' => ['type' => CustomTypes::string()],
-							'email' => ['type' => CustomTypes::string()],
-							'locations' => ['type' => CustomTypes::string()] //CustomTypes::listOf(CustomTypes::location())
+							'fname' => ['type' => CustomType::string()],
+							'sname' => ['type' => CustomType::string()],
+							'email' => ['type' => CustomType::string()],
+							'locations' => ['type' => CustomType::string()] //CustomType::listOf(CustomType::location())
 						],
 						// This one gets hit first?
 						'resolve' => function() {

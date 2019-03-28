@@ -4,6 +4,8 @@ namespace Prototype\GQL\Type;
 
 use GraphQL\Type\Definition\Type;
 use GraphQL\GraphQL;
+use Prototype\GQL\Type\Location\LocationType;
+use Prototype\GQL\Type\User\UserType;
 
 class CustomType
 {

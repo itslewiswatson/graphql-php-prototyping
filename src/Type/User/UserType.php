@@ -1,5 +1,10 @@
 <?php
 
+namespace Prototype\GQL\Type\User;
+
+use GraphQL\Type\Definition\ObjectType;
+use Prototype\GQL\Type\CustomType;
+
 class UserType extends ObjectType
 {
 	public function __construct()
@@ -8,34 +13,34 @@ class UserType extends ObjectType
 			'fields' => function() {
 				return [
 					'userid' => [
-						'type' => CustomTypes::int(),
+						'type' => CustomType::int(),
 						'resolve' => function($user) {
 							return $user["userid"];
 						}
 					],
 					'fname' => [
-						'type' => CustomTypes::string(),
+						'type' => CustomType::string(),
 						'resolve' => function($user) {
 							return $user["fname"];
 						}
 					],
 					'sname' => [
-						'type' => CustomTypes::string(),
+						'type' => CustomType::string(),
 						'resolve' => function($user) {
 							return $user["sname"];
 						}
 					],
 					'email' => [
-						'type' => CustomTypes::string(),
+						'type' => CustomType::string(),
 						'resolve' => function($user) {
 							return $user["email"];
 						}
 					],
 					'locations' => [
-						'type' => CustomTypes::listOf(CustomTypes::location())
+						'type' => CustomType::listOf(CustomType::location())
 					],
 					'fullname' => [
-						'type' => CustomTypes::string(),
+						'type' => CustomType::string(),
 						'resolve' => function($user) {
 							return $user["fname"] . " " . $user["sname"];
 

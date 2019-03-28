@@ -2,6 +2,8 @@
 
 namespace Prototype\GQL\Registry;
 
+use Prototype\GQL\Type\CreateUserType;
+
 class MutationRegistry
 {
 	private static $createUser;
