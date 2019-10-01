@@ -1,5 +1,5 @@
 <?php
-
+/*
 namespace Prototype\GQL\Type;
 
 use GraphQL\Type\Definition\ObjectType;
@@ -37,3 +37,4 @@ class MutationType extends ObjectType
 		parent::__construct($params);
 	}
 }
+*/

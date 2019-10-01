@@ -1,5 +1,6 @@
 <?php
 
+/*
 namespace Prototype\GQL\Type;
 
 use GraphQL\Type\Definition\InputObjectType;
@@ -35,3 +36,4 @@ class CreateUserInputType extends InputObjectType
 		parent::__construct($params);
 	}
 }
+*/

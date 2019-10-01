@@ -69,6 +69,7 @@ class QueryType extends ObjectType
 						],
 						'resolve' => function($obj, $args) {
 							$result = DB::getUsers($args["limit"]);
+							//var_dump($result);
 							return $result;
 						}
 					]

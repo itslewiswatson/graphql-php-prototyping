@@ -3,6 +3,7 @@
 namespace Prototype\GQL\Priv;
 
 $config = json_decode(file_get_contents("../.config"), true);
+var_dump("IS THIS EVEN BEING CALLED");
 
 global $mysqli;
 @$mysqli = new mysqli('localhost', $config["usr"], $config["passwd"], $config["db"], 3306);

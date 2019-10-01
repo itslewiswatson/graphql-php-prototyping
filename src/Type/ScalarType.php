@@ -3,7 +3,7 @@
 namespace Prototype\GQL\Type;
 
 use GraphQL\Type\Definition\ScalarType;
-use GraphQL\GraphQL;
+use GraphQL\GraphQL;/*
 
 class EmailType extends ScalarType
 {
@@ -30,4 +30,4 @@ class EmailType extends ScalarType
 		}
 		return $valueNode->value;
 	}
-}
+}*/

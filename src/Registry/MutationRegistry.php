@@ -1,5 +1,5 @@
 <?php
-
+/*
 namespace Prototype\GQL\Registry;
 
 use Prototype\GQL\Type\User\CreateUserType;
@@ -20,3 +20,4 @@ class MutationRegistry
 		return self::$createLocation ?: (self::$createLocation = new CreateLocationType());
 	}
 }
+*/
